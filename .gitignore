@@ -1,0 +1,68 @@
+# Never commit keys or local settings
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+client_secret*.json
+*_token.json
+token.json
+.claude/settings.local.json
+.claude/skills/
+
+# Python and Node
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+node_modules/
+
+# Run output and caches the scripts create
+runs/
+audio_cache/
+recordings/
+remotion/out/
+remotion/build/
+remotion/dist/
+automation/_work/student_walk/
+automation/_work/render.pdf
+
+# Media and editor projects: this repository ships none
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.avi
+*.m4v
+*.wav
+*.mp3
+*.m4a
+*.aac
+*.flac
+*.ogg
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.tif
+*.tiff
+*.bmp
+*.webp
+*.psd
+*.ai
+*.aep
+*.prproj
+*.mogrt
+*.epr
+
+# Office files (the manuals are course material)
+*.docx
+*.xlsx
+*.pptx
+
+# Operating system clutter
+Thumbs.db
+.DS_Store
+desktop.ini
