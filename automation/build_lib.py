@@ -21,7 +21,8 @@ HERE_SHOTS = Path(__file__).resolve().parent / "screenshots_annotated"
 MAX_W = 5.5   # inches; right column is 5.9"
 SCALE = 0.8   # inches per 96 css px; matches the size of the hand-made screenshots
 DPR = 2       # screenshots captured at devicePixelRatio 2
-CODE_STYLE = "Code In Text [PACKT]"
+CODE_STYLE = "Code In Text [PACKT]"   # style name inherited from the master document's Word template;
+                                      # renaming it would mean changing the master
 
 
 def text_of(el):
@@ -423,7 +424,7 @@ def swap_run(d, heading, starts, old, markup):
     p.remove(run)
 
 
-# ---- Layout passes (David's review rules, 2026-10-13; .kiro/steering/style.md "David's Review Rules") ----
+# ---- Layout passes (David's review rules, 2026-10-13; steering/style.md "David's Review Rules") ----
 # Run last in make_draft.py, after every exercise and fix_numbering.
 EMU = 914400
 CELL_MAX = 5.57   # inches: widest picture in a two-column instruction row
@@ -543,7 +544,7 @@ def keep_picture_rows_together(d, max_h=MAX_H):
 
 def merge_completed_results(d):
     """A "Completed Results:" row whose label is its own paragraph (e.g. the master's Pivot Table, a Heading 4)
-    becomes the standard form: one centred paragraph, label (Heading4Char) + line break + picture. The separate
+    becomes the standard form: one centered paragraph, label (Heading4Char) + line break + picture. The separate
     heading paragraph made the Pivot row taller than a page, so Word split it: label on one page, picture on
     the next (student walkthrough, session 9)."""
     n = 0

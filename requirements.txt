@@ -1,0 +1,6 @@
+# Python 3.8 or later. Tesseract OCR itself is a separate install (see README).
+playwright
+python-docx
+PyMuPDF
+Pillow
+pytesseract

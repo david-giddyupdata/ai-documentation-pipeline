@@ -23,7 +23,7 @@ ALIASES = {"PostgreSQL": "Extra Credit: PostgreSQL", "Row vs Aggregate": "Row vs
            "CF: Background": "No Code Conditional Formatting: Background",
            "CF: Icon": "No Code Conditional Formatting: Icon"}
 RUN_GENERIC = {"06_C1": "Row Level", "08_D": "D-Formatting (all three exercises)",
-               "11_Add3a": "Line Chart"}      # rows labelled "Extra Credit", "Overall", "Both"
+               "11_Add3a": "Line Chart"}      # rows labeled "Extra Credit", "Overall", "Both"
 
 
 def exercise(name, run):

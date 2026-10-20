@@ -1,6 +1,10 @@
 """Save a student subagent's final reply (findings) from its transcript, and pull out its "Where I stopped" note.
 
-    python _work/student_extract.py <transcript .output/.jsonl> <out .md>   # prints the "Where I stopped" section
+    python _work/student_extract.py <transcript .output/.jsonl> <out .md> [--run <run dir>]
+                                                                         # prints the "Where I stopped" section
+
+Password masking (--run) is best-effort: it only replaces a password printed in the run's manual pages on the
+line right after a line reading exactly "Password" (6 or more characters). Check the output before sharing it.
 """
 import json
 import re

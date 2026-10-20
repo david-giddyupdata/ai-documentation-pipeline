@@ -18,7 +18,8 @@ import fitz
 HERE = Path(__file__).resolve().parent.parent
 PDF = HERE / "_work" / "render.pdf"
 PAGES = HERE / "_work" / "student_walk" / "draft_pages.json"      # {leaf: [unit name, first page, last page]}
-DOWNLOADS = HERE.parent.parent / "QuickSightJourney1" / "Data"    # the course download material
+# the course download material, in a folder beside the project folder (not published)
+DOWNLOADS = HERE.parent.parent / "QuickSightJourney1" / "Data"
 
 RUNS = [
     ("01_A", ["Connect to Data", "Create Analysis"]),

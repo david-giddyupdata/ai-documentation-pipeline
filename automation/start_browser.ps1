@@ -1,6 +1,7 @@
 # Starts the Quick Sight (AWS) walkthrough browser: Chrome with its own profile (kept outside
 # any cloud-synced folder so sign-ins persist) and a debugging port that qs.py connects to.
-# Port 9334 / Chrome on purpose: another automation uses Edge on 9333.
+# Port 9334 must match CDP_URL in qs.py and _work/student_server.py. The 1440x960 window was run on a
+# 1440x900 screen; _work/common.py overrides the page size for captures.
 # -StartUrl: optional; pass your own region's sign-in page, such as https://<REGION>.quicksight.aws.amazon.com/sn/start
 param(
     [string]$StartUrl = "https://quicksight.aws.amazon.com/"

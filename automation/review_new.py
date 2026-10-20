@@ -7,9 +7,9 @@ snapshot exists, text) differs from what he last reviewed. Shares review/img/ wi
 
 With a snapshot (review/baseline/manifest.json): each changed step shows "At your last review" next to
 "Now", text changes included. Before the first snapshot it falls back to review/baseline_s7.json (the
-session-7 pack's picture hashes, plus a reason per changed picture from _work/s9_since_s7.py): pictures
-only, shown next to the master with the reason. Either way, a picture that was only re-saved (same pixels
-inside the frame) is listed at the bottom instead of shown as a change.
+session-7 pack's picture hashes, plus a reason per changed picture from _work/s9_since_s7.py; neither is
+published): pictures only, shown next to the master with the reason. Either way, a picture that
+was only re-saved (same pixels inside the frame) is listed at the bottom instead of shown as a change.
 """
 import html
 import io

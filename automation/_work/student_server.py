@@ -86,7 +86,8 @@ class Student:
         m = self.page.mouse
         if cmd == "files":
             names = sorted(f.name for f in self.downloads.glob("*")) if self.downloads.exists() else []
-            return ("File picker open. " if self.chooser else "No file picker is open. ") +                 "Course download folder: " + (", ".join(names) or "(empty)")
+            return (("File picker open. " if self.chooser else "No file picker is open. ")
+                    + "Course download folder: " + (", ".join(names) or "(empty)"))
         if cmd == "upload":
             if self.chooser is None:
                 return "No file picker is open. Click the button that opens one first."

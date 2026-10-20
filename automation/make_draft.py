@@ -2,6 +2,7 @@
 
 The master is only read. Re-run after editing any ex_*.py or re-annotating screenshots.
 """
+import json
 import shutil
 from pathlib import Path
 
@@ -38,7 +39,6 @@ import ex_lacs
 import ex_row_level
 import ex_table_calcs
 import ex_themes
-import json
 
 from build_lib import (fix_numbering, fit_images, keep_picture_rows_together, merge_completed_results,
                        page_breaks_to_headings,
@@ -48,7 +48,8 @@ HERE = Path(__file__).resolve().parent
 FIT_REPORT = HERE / "_work" / "fit_report.json"
 MASTER = HERE.parent / "QuickSight Journey 1.docx"
 DRAFT = HERE.parent / "QuickSight Journey 1 - draft.docx"
-EXERCISES = [ex_row_level, ex_connect_data, ex_create_analysis, ex_athena, ex_front, ex_s3, ex_redshift, ex_postgres, ex_rva, ex_row_level_s4, ex_table_calcs, ex_lacs, ex_background, ex_icon, ex_themes,
+EXERCISES = [ex_row_level, ex_connect_data, ex_create_analysis, ex_athena, ex_front, ex_s3, ex_redshift,
+             ex_postgres, ex_rva, ex_row_level_s4, ex_table_calcs, ex_lacs, ex_background, ex_icon, ex_themes,
              ex_add_table, ex_add_pivot, ex_add_heat,
              ex_add_clustered, ex_add_stacked, ex_add_sidebyside,
              ex_add_line, ex_add_spark, ex_add_area, ex_add_combo,

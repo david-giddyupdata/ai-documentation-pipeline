@@ -26,7 +26,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 import units  # noqa: E402
 
-# Known scan_numbers result that is not a defect (handoff section 9: the Login URL wraps in the PDF)
+# Known scan_numbers result that is not a defect (the Login exercise's URL wraps onto two lines in the PDF)
 KNOWN_SCAN = ("Login",)
 # Pictures David accepted under 90% (session 9, 2026-10-13): (exercise, start of the row text). Counted, not listed.
 ACCEPTED_UNDER_90 = [("Create Analysis", "Position the bar chart above the line chart"),

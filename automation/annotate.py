@@ -28,16 +28,17 @@ HERE = Path(__file__).resolve().parent
 ORANGE = (244, 172, 8, 255)
 SHADOW = (0, 0, 0, 90)
 
-# Torn-edge look (frame and tear_y). line = the jagged outline colour (None = no line), line_w in CSS px;
+# Torn-edge look (frame and tear_y). line = the jagged outline color (None = no line), line_w in CSS px;
 # shadow = soft drop shadow behind the torn shape (alpha 0-255; dx, dy, blur in CSS px), as in David's Snagit
-# images; fine = Snagit-like finer, irregular teeth instead of the even 3 px teeth. Samples: review/edge_samples.html
+# images; fine = Snagit-like finer, irregular teeth instead of the even 3 px teeth.
+# Samples (not published): review/edge_samples.html
 EDGE_STYLES = {
     "black": dict(line=(0, 0, 0, 255), line_w=1.5, shadow=0, dx=0, dy=0, blur=0, fine=False),    # sessions 1-8
     "gray_light": dict(line=(160, 160, 160, 255), line_w=1, shadow=70, dx=1.5, dy=1.5, blur=2, fine=False),
     "gray_shadow": dict(line=(170, 170, 170, 255), line_w=1, shadow=130, dx=2, dy=2, blur=2.5, fine=False),
     "snagit": dict(line=None, line_w=0, shadow=140, dx=1.5, dy=1.5, blur=2, fine=True),
 }
-EDGE = EDGE_STYLES["gray_light"]          # David chose B (session 9, 2026-10-13)
+EDGE = EDGE_STYLES["gray_light"]          # gray_light chosen 2026-10-13 (session 9)
 
 
 def _teeth(rnd, length, k, amp):
@@ -168,7 +169,7 @@ class Shot:
         return self
 
     def erase(self, rect, fill=None):
-        """Paint over a region (e.g. a stray tooltip) with `fill`, default the colour just left of it."""
+        """Paint over a region (e.g. a stray tooltip) with `fill`, default the color just left of it."""
         x0, y0 = self._px(*rect[:2]); x1, y1 = self._px(*rect[2:])
         col = fill or self.img.getpixel((max(0, int(x0) - 2), int(y0)))
         ImageDraw.Draw(self.img).rectangle((x0, y0, x1, y1), fill=col)

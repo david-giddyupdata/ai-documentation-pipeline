@@ -94,7 +94,7 @@ Use these exact terms to match the QuickSight interface:
 | Chart types | Visual types |
 | Dashboard sections | Sheets |
 | Data connections | Data sources |
-| Reusable visuals | Themes |
+| Color and styling | Themes |
 | Sharing | Publish dashboard |
 
 ---

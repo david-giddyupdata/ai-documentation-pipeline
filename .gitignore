@@ -19,17 +19,18 @@ venv/
 *.egg-info/
 node_modules/
 
-# Run output and caches the scripts create
+# Run output the scripts create (review pages, screenshots and sheets carry course text)
 runs/
-audio_cache/
-recordings/
-remotion/out/
-remotion/build/
-remotion/dist/
+automation/review/
+automation/screenshots/
+automation/screenshots_annotated/
+automation/_work/sheets/
 automation/_work/student_walk/
 automation/_work/render.pdf
+automation/_work/fit_report.json
+automation/_work/*.png
 
-# Media and editor projects: this repository ships none
+# Media: this repository ships none
 *.mp4
 *.mov
 *.mkv
@@ -52,10 +53,6 @@ automation/_work/render.pdf
 *.webp
 *.psd
 *.ai
-*.aep
-*.prproj
-*.mogrt
-*.epr
 
 # Office files (the manuals are course material)
 *.docx

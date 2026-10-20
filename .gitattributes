@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Binary files: never convert line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.docx binary
+*.xlsx binary
+*.pptx binary
+*.zip binary

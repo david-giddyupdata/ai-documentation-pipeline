@@ -4,8 +4,8 @@
 
 Left = master (what students have now), right = draft. Only changed text and pictures are shown;
 step numbers are automatic in Word, so renumbering alone never shows up. Each exercise also lists
-its walkthrough rulings (WALKTHROUGH_RULINGS.md) and A1 number changes, and any screenshot-check
-flags from review/pdf_flags.json:
+its walkthrough rulings and A1 number changes (both from WALKTHROUGH_RULINGS.md, which is not published;
+skipped when the file is missing), and any screenshot-check flags from review/pdf_flags.json:
 
     [{"unit": "Line Chart", "page": 210, "where": "step 5", "severity": "fix" | "check", "issue": "..."}]
 
@@ -44,7 +44,7 @@ EX_MAP = {
     "Add / Table": "Table", "Add / Pivot": "Pivot Table", "Add / Heat Map": "Heat Map",
     "Add / Clustered": "Clustered Bar", "Add / Stacked": "Stacked Bar", "Add / Side-by-Side": "Side-by-Side Bar",
 }
-# A1 table "Where" prefixes -> unit leaf
+# A1 table "Where" prefixes -> unit leaf (hard-coded for one review cycle, like EX_MAP above)
 A1_MAP = [("Explanation of Datasets", "Explanation of Datasets"), ("Table Calculations", "Table Calculations"),
           ("Heat Map", "Heat Map"), ("Addendum > Table", "Table"), ("Row Level", "Row Level")]
 
@@ -54,7 +54,7 @@ TOK = re.compile(r"\s+|[\w’'%.,:/-]+|[^\w\s]")
 # ---------- text ----------
 
 def norm(segs):
-    """Collapse spacing, ignore bold on blank runs, merge neighbours; for comparing and diffing."""
+    """Collapse spacing, ignore bold on blank runs, merge neighbors; for comparing and diffing."""
     out = []
     for t, b in segs:
         t = re.sub(r"[ \t ]+", " ", t)
@@ -165,6 +165,8 @@ def label(o, n):
 
 def rulings():
     by_leaf, seen = {}, set()
+    if not RULINGS.exists():
+        return by_leaf
     for line in RULINGS.read_text(encoding="utf-8").splitlines():
         m = re.match(r"\|\s*(\d+)\s*\|(.*)", line)
         if not m:
@@ -183,6 +185,8 @@ def rulings():
 
 
 def a1_changes():
+    if not RULINGS.exists():
+        return {}
     text = RULINGS.read_text(encoding="utf-8")
     sec = text.split("## A1 number changes", 1)[-1].split("\n## ", 1)[0]
     by_leaf, last = {}, None
@@ -356,7 +360,7 @@ def main():
                                f"<td>{html.escape(r['issue'])}</td><td>{html.escape(r['ruling'])}</td>"
                                f"<td>{html.escape(r['note'])}</td><td>{html.escape(r['status'])}</td></tr>" for r in notes_r)
                      + "</table></details>")
-        if notes_a:
+        if notes_a:                     # "72-month data": the data refresh of that review cycle (hard-coded)
             s.append(f"<details><summary>Number changes from the 72-month data ({len(notes_a)})</summary>"
                      '<table class="notes"><tr><th>Where</th><th>Before</th><th>After</th></tr>'
                      + "".join(f"<tr><td>{html.escape(a['where'])}</td><td>{html.escape(a['before'])}</td>"
@@ -405,6 +409,7 @@ def main():
                    + "</ul></div>")
 
     when = datetime.now().strftime("%Y-%m-%d %H:%M")
+    # The summary above and the lede below are worded for one review cycle (sessions 6-8): hard-coded.
     page = f"""<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1"><title>Journey 1 Review Pack</title>
 <style>{CSS}</style></head><body>

@@ -5,8 +5,9 @@ TEST = "<ANALYSIS_ID>"  # the ID of your own Quick Sight (AWS) analysis, from it
 TAB = os.environ.get("QS_TAB", TEST)      # set QS_TAB=quicksight to use whatever QS page is open
 p = page(TAB)
 assert TAB in p.url, p.url
-# The real window is only 759 css px tall (1440x900 screen); render 1000 px so long
-# field menus fit. The override lasts only while this script's CDP session is open.
+# The real page area was only 759 css px tall (start_browser.ps1's 1440x960 window on a 1440x900
+# screen); render 1000 px so long field menus fit. The override lasts only while this script's CDP
+# session is open.
 _cdp = p.context.new_cdp_session(p)
 _cdp.send("Emulation.setDeviceMetricsOverride", {"width": 1427, "height": 1000, "deviceScaleFactor": 2, "mobile": False})
 import qs; qs.CDP = _cdp
@@ -17,7 +18,8 @@ def tabname(): return p.locator('[data-automation-id="selectedTab_sheet_name_con
 
 def value_pill(n):
     """n-th (0-based) pill in the VALUES well."""
-    lab = p.locator('text=/^flights \(/').locator("visible=true").nth(n)
+    # dataset-specific: the course's measure pills read "flights (...)"; change this for your own data
+    lab = p.locator(r'text=/^flights \(/').locator("visible=true").nth(n)
     return lab.locator("xpath=ancestor::*[.//button][1]")
 
 def M(label):
